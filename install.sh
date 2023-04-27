@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Copyright © 2019-2023 rusty-snake and contributors
+# Copyright © 2019-2023 rusty-snake and contributors, 2023 Sam A. and contributors
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -38,9 +38,9 @@ install_tb()
   create_backup "$FTB_HOME"
   mkdir -p "$FTB_HOME"
 
-  echo "[ Info ] Extracting the tor-browser ..."
+  echo "[ Info ] Extracting the mullvad-browser ..."
   tar -C "$FTB_HOME" --strip 1 -xJf "$CFG_TBB_PATH"
-  echo "[ Ok ] tor-browser installed."
+  echo "[ Ok ] mullvad-browser installed."
 }
 
 main()
@@ -50,8 +50,8 @@ main()
   install_fj
   install_tb
 
-  echo "[ Ok ] Done! The installation was successful, you can now launch Tor Browser by running:"
-  echo "[ Ok ]   firejail --profile=firejailed-tor-browser \"\$HOME/Browser/start-tor-browser\" --name=\"Tor Browser\""
+  echo "[ Ok ] Done! The installation was successful, you can now launch Mullvad Browser by running:"
+  echo "[ Ok ]   firejail --profile=firejailed-mullvad-browser \"\$HOME/Browser/start-mullvad-browser\" --name=\"Mullvad Browser\""
 }
 
 [ "${BASH_SOURCE[0]}" == "$0" ] && main "$@";:

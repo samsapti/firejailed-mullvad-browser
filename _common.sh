@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-# Copyright © 2019-2023 rusty-snake and contributors
+# Copyright © 2019-2023 rusty-snake and contributors, 2023 Sam A. and contributors
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,17 +20,17 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-FTB_HOME="$HOME/.firejailed-tor-browser"
-FTB_DESKTOP="firejailed-tor-browser.desktop"
+FTB_HOME="$HOME/.firejailed-mullvad-browser"
+FTB_DESKTOP="firejailed-mullvad-browser.desktop"
 FTB_DESKTOP_DEST="${XDG_DATA_HOME:-"$HOME"/.local/share}/applications/$FTB_DESKTOP"
-FTB_LOCAL="firejailed-tor-browser.local"
-FTB_PROFILE="firejailed-tor-browser.profile"
-FTB_X11_INC="firejailed-tor-browser-x11.inc"
+FTB_LOCAL="firejailed-mullvad-browser.local"
+FTB_PROFILE="firejailed-mullvad-browser.profile"
+FTB_X11_INC="firejailed-mullvad-browser-x11.inc"
 SUPPORTED_FIREJAIL_VERSIONS=("git" "0.9.70" "0.9.66" "0.9.64.4" "0.9.62" "0.9.58")
 
 CFG_FIREJAIL_VERSION="git"
 CFG_SRC="."
-CFG_TBB_PATH="PATH_TO_TOR_BROWSER_ARCHIVE"
+CFG_TBB_PATH="PATH_TO_MULLVAD_BROWSER_ARCHIVE"
 CFG_X11=no
 if [[ -z "$WAYLAND_DISPLAY" ]]; then
   echo "[ Info ] \$WAYLAND_DISPLAY is unset (or empty). Allow X11."
@@ -42,7 +42,7 @@ usage()
 {
   cat <<-EOM
 Usage:
-    $0 [OPTIONS] [PATH_TO_TOR_BROWSER_ARCHIVE]
+    $0 [OPTIONS] [PATH_TO_MULLVAD_BROWSER_ARCHIVE]
 
 OPTIONS:
   --help,-h,-?        Show this help and exit.
@@ -114,12 +114,12 @@ fix_disable-programs()
   if [[ "$FIREJAIL_VERSION" == "0.9.58" ]]; then
     echo "[ Warning ] Fixing disable-programs is only supported for firejail 0.9.60 and newer."
     echo "[ Info ] To fix disable-programs manually execute the following as root if you know what it does:"
-    echo "[ Info ]     sh -c 'echo \${HOME}/.firejailed-tor-browser' >> /etc/firejail/disable-programs.local"
+    echo "[ Info ]     sh -c 'echo \${HOME}/.firejailed-mullvad-browser' >> /etc/firejail/disable-programs.local"
     return 0
   fi
 
   DISABLE_PROGRAMS_LOCAL="${HOME}/.config/firejail/disable-programs.local"
-  BLACKLIST_FTB="blacklist \${HOME}/.firejailed-tor-browser"
+  BLACKLIST_FTB="blacklist \${HOME}/.firejailed-mullvad-browser"
 
   # grep prints errors about non-existing files even with --quiet
   touch "$DISABLE_PROGRAMS_LOCAL"
@@ -139,7 +139,7 @@ allow_x11_if_wanted()
 
   touch "$HOME/.config/firejail/$FTB_LOCAL"
 
-  INCLUDE_FTB_X11_INC="include firejailed-tor-browser-x11.inc"
+  INCLUDE_FTB_X11_INC="include firejailed-mullvad-browser-x11.inc"
 
   if ! grep --quiet "^$INCLUDE_FTB_X11_INC" "$HOME/.config/firejail/$FTB_LOCAL"; then
     echo "$INCLUDE_FTB_X11_INC" >> "$HOME/.config/firejail/$FTB_LOCAL"

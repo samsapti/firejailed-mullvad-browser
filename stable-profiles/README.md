@@ -9,7 +9,7 @@ you must use profiles with no features added in later versions.
 Call `./install.sh` with `--firejail=VERSION`, e.g.
 
 ```bash
-$ ./install.sh --firejail=0.9.60 ~/Downloads/tor-browser-linux64-8.5.4_en-US.tar.xz
+$ ./install.sh --firejail=0.9.60 ~/Downloads/mullvad-browser-linux64-*_ALL.tar.xz
 ```
 
 or, if you use the manual install, download the profile and the `.desktop` file for
