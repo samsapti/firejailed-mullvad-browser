@@ -114,3 +114,4 @@ env MOZ_ENABLE_WAYLAND=1
 name firejailed-mullvad-browser
 read-only ${HOME}
 read-write ${HOME}/Browser
+read-write ${HOME}/Data
