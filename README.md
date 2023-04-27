@@ -1,4 +1,4 @@
-# HOWTO: Firejailed Mullvad Browser
+# HOW TO: Firejailed Mullvad Browser
 
 **Note:** This is a fork of [firejailed-tor-browser](https://github.com/rusty-snake/firejailed-tor-browser)
 by rusty-snake. This fork is for Firejailing [Mullvad Browser](https://mullvad.net/browser) instead of Tor Browser.
