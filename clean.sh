@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Copyright © 2019-2023 rusty-snake and contributors
+# Copyright © 2019-2023 rusty-snake and contributors, 2023 Sam A. and contributors
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -33,13 +33,13 @@ if [ "$1" == "--help" ]; then
 fi
 
 if [ "$1" == "--all" ]; then
-	rm -r -f -v "${HOME}"/.firejailed-tor-browser*
-	rm -r -f -v "${HOME}"/.config/firejail/firejailed-tor-browser.profile*
-	rm -r -f -v "${HOME}"/.config/firejail/firejailed-tor-browser-x11.inc*
-	rm -r -f -v "${HOME}"/.local/share/applications/firejailed-tor-browser.desktop*
+	rm -r -f -v "${HOME}"/.firejailed-mullvad-browser*
+	rm -r -f -v "${HOME}"/.config/firejail/firejailed-mullvad-browser.profile*
+	rm -r -f -v "${HOME}"/.config/firejail/firejailed-mullvad-browser-x11.inc*
+	rm -r -f -v "${HOME}"/.local/share/applications/firejailed-mullvad-browser.desktop*
 else
-	rm -r -f -v "${HOME}"/.firejailed-tor-browser.bak-*
-	rm -r -f -v "${HOME}"/.config/firejail/firejailed-tor-browser.profile.bak-*
-	rm -r -f -v "${HOME}"/.config/firejail/firejailed-tor-browser-x11.inc.bak-*
-	rm -r -f -v "${HOME}"/.local/share/applications/firejailed-tor-browser.desktop.bak-*
+	rm -r -f -v "${HOME}"/.firejailed-mullvad-browser.bak-*
+	rm -r -f -v "${HOME}"/.config/firejail/firejailed-mullvad-browser.profile.bak-*
+	rm -r -f -v "${HOME}"/.config/firejail/firejailed-mullvad-browser-x11.inc.bak-*
+	rm -r -f -v "${HOME}"/.local/share/applications/firejailed-mullvad-browser.desktop.bak-*
 fi
