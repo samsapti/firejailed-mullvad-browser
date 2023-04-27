@@ -40,8 +40,8 @@ install_tb()
 
   echo "[ Info ] Extracting the mullvad-browser ..."
   tar -C "$FTB_HOME" --strip 1 -xJf "$CFG_TBB_PATH"
-  echo "[ Info ] Creating data directory ..."
-  mkdir "$FTB_HOME/Data"
+  echo "[ Info ] Creating needed directories ..."
+  mkdir "$FTB_HOME/Data" "$FTB_HOME/UpdateInfo"
   echo "[ Ok ] mullvad-browser installed."
 }
 

@@ -115,3 +115,4 @@ name firejailed-mullvad-browser
 read-only ${HOME}
 read-write ${HOME}/Browser
 read-write ${HOME}/Data
+read-write ${HOME}/UpdateInfo
