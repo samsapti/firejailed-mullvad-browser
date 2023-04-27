@@ -1,6 +1,6 @@
-# Contributing to firejailed-tor-browser
+# Contributing to firejailed-mullvad-browser
 
-Welcome to firejailed-tor-browser, and thanks for taking the time to contribute!
+Welcome to firejailed-mullvad-browser, and thanks for taking the time to contribute!
 
 TL;DR: open issues, comment on issues, open PRs.
 
@@ -16,7 +16,7 @@ But you aren't limited to these things. Use your imagination. If you like a proj
 
 ### Improve documentation
 
-As a user of `FTB` you're the perfect candidate to help us improve our documentation. Typo corrections, error fixes, better explanations, more examples, etc. Open issues for things that could be improved. Anything. Even improvements to this document.
+As a user of `FMB` you're the perfect candidate to help us improve our documentation. Typo corrections, error fixes, better explanations, more examples, etc. Open issues for things that could be improved. Anything. Even improvements to this document.
 
 ### Improve issues
 
@@ -24,7 +24,7 @@ Some issues are created with missing information, not reproducible, or plain inv
 
 ### Give feedback on issues
 
-We're always looking for more opinions on discussions in the issue tracker. It's a good opportunity to influence the future direction of `FTB`.
+We're always looking for more opinions on discussions in the issue tracker. It's a good opportunity to influence the future direction of `FMB`.
 
 ## Why should I contribute?
 
@@ -39,7 +39,7 @@ Here are just a few of the advantages of adding value to a project:
 
 ## Getting started - How can I contribute?
 
-[Open bugs](https://github.com/rusty-snake/firejailed-tor-browser/issues/new)
+[Open bugs](https://github.com/samsapti/firejailed-mullvad-browser/issues/new)
  - using, testing, reporting bugs
  - suggesting enhancements
  - asking questions
@@ -47,21 +47,25 @@ Here are just a few of the advantages of adding value to a project:
 
 Open PRs
  - improving scripts and profiles
- - help backporting profiles ([#21](https://github.com/rusty-snake/firejailed-tor-browser/issues/21))
- - **I'm not a native English speaker, if you are one, you can help improving documentations, README, ... and fixing grammar, vocab, ...**
+ - help backporting profiles ([#21](https://github.com/samsapti/firejailed-mullvad-browser/issues/21))
+ - help improving documentations, README, ... and fixing grammar, vocab, ...
  - ...
 
 ---
 
-License of this file
-====================
+# License of this file
 
 [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
 
-Copyright © 2019 rusty-snake
+Copyright © 2023 Sam A.
 
-Credits
--------
+## Credits
+
+Most of this file is based on [firejailed-tor-browser](https://github.com/rusty-snake/firejailed-tor-browser)'s
+[CONTRIBUTING.md](https://github.com/rusty-snake/firejailed-tor-browser/blob/master/CONTRIBUTING.md).
+Copyright © 2019 [rusty-snake](https://github.com/rusty-snake) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/))
+
+### From rusty-snake's CONTRIBUTING.md:
 
 The sections 'What does "contributing" mean?' and 'Why should I contribute?' are based
 on [write-file](https://github.com/tunnckoCore/write-file)s [CONTRIBUTIN.md](https://github.com/tunnckoCore/write-file/blob/master/CONTRIBUTING.md).
