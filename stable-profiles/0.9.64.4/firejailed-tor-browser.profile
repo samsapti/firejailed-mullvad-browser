@@ -1,5 +1,5 @@
 # vim: ft=firejail
-# Copyright © 2019-2023 rusty-snake and contributors
+# Copyright © 2019-2023 rusty-snake and contributors, 2023 Sam A. and contributors
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,27 +19,27 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-###########################################################
-#                                                         #
-#              HOWTO: Firejailed Tor Browser              #
-#  https://github.com/rusty-snake/firejailed-tor-browser  #
-#                                                         #
-###########################################################
+############################################################
+#                                                          #
+#            HOW TO: Firejailed Mullvad Browser            #
+#  https://github.com/samsapti/firejailed-mullvad-browser  #
+#                                                          #
+############################################################
 
 #
 # Backported profile for firejail 0.9.64.4
 #
 
 # Report any issues at
-#  <https://github.com/rusty-snake/firejailed-tor-browser/issues/new>
+#  <https://github.com/samsapti/firejailed-mullvad-browser/issues/new>
 
 # Persistent local customizations
-include firejailed-tor-browser.local
+include firejailed-mullvad-browser.local
 
 # Note: PluggableTransports didn't work with this profile
 
 # If you use X11:
-#include firejailed-tor-browser-x11.inc
+#include firejailed-mullvad-browser-x11.inc
 
 # If you use pulseaudio:
 #ignore machine-id
@@ -48,7 +48,7 @@ include firejailed-tor-browser.local
 
 ignore noexec ${HOME}
 
-noblacklist ${HOME}/.firejailed-tor-browser
+noblacklist ${HOME}/.firejailed-mullvad-browser
 
 include allow-bin-sh.inc
 
@@ -112,7 +112,7 @@ seccomp-error-action kill
 shell none
 
 disable-mnt
-private ${HOME}/.firejailed-tor-browser
+private ${HOME}/.firejailed-mullvad-browser
 private-bin bash,dirname,env,expr,file,getconf,grep,rm,sh
 private-cache
 private-dev
@@ -122,10 +122,12 @@ dbus-user none
 dbus-system none
 
 env MOZ_ENABLE_WAYLAND=1
-name firejailed-tor-browser
+name firejailed-mullvad-browser
 read-only ${RUNUSER}
 read-only ${HOME}
 read-write ${HOME}/Browser
-# rmenv DISPLAY -- does not work ATOW because tbb requires $DISPLAY to be set and not empty.
+read-write ${HOME}/Data
+read-write ${HOME}/UpdateInfo
+# rmenv DISPLAY -- does not work ATOW because mbb requires $DISPLAY to be set and not empty.
 env DISPLAY=wayland_is_better
 rmenv XAUTHORITY

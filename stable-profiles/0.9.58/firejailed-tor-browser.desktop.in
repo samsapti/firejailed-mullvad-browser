@@ -1,4 +1,4 @@
-# Copyright © 2019-2023 rusty-snake and contributors
+# Copyright © 2019-2023 rusty-snake and contributors, 2023 Sam A. and contributors
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -18,12 +18,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-###########################################################
-#                                                         #
-#              HOWTO: Firejailed Tor Browser              #
-#  https://github.com/rusty-snake/firejailed-tor-browser  #
-#                                                         #
-###########################################################
+############################################################
+#                                                          #
+#            HOW TO: Firejailed Mullvad Browser            #
+#  https://github.com/samsapti/firejailed-mullvad-browser  #
+#                                                          #
+############################################################
 
 #
 # Backported for firejail 0.9.58
@@ -32,12 +32,12 @@
 [Desktop Entry]
 Version=1.1
 Type=Application
-Name=Tor Browser
+Name=Mullvad Browser
 GenericName=Web Browser
-Comment=Tor Browser is +1 for privacy and -1 for mass surveillance
-Icon=HOME/.firejailed-tor-browser/Browser/browser/chrome/icons/default/default128.png
-Exec=sh -c 'firejail --profile=firejailed-tor-browser "HOME/Browser/start-tor-browser"'
+Comment=Mullvad Browser is +1 for privacy and -1 for mass surveillance
+Icon=HOME/.firejailed-mullvad-browser/Browser/browser/chrome/icons/default/default128.png
+Exec=sh -c 'firejail --profile=firejailed-mullvad-browser "HOME/Browser/start-mullvad-browser"'
 Categories=Network;Security;WebBrowser;
-Keywords=TBB;
+Keywords=MBB;
 StartupNotify=true
-StartupWMClass=Tor Browser
+StartupWMClass=Mullvad Browser
