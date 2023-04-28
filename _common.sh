@@ -20,17 +20,17 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-FTB_HOME="$HOME/.firejailed-mullvad-browser"
-FTB_DESKTOP="firejailed-mullvad-browser.desktop"
-FTB_DESKTOP_DEST="${XDG_DATA_HOME:-"$HOME"/.local/share}/applications/$FTB_DESKTOP"
-FTB_LOCAL="firejailed-mullvad-browser.local"
-FTB_PROFILE="firejailed-mullvad-browser.profile"
-FTB_X11_INC="firejailed-mullvad-browser-x11.inc"
+FMB_HOME="$HOME/.firejailed-mullvad-browser"
+FMB_DESKTOP="firejailed-mullvad-browser.desktop"
+FMB_DESKTOP_DEST="${XDG_DATA_HOME:-"$HOME"/.local/share}/applications/$FMB_DESKTOP"
+FMB_LOCAL="firejailed-mullvad-browser.local"
+FMB_PROFILE="firejailed-mullvad-browser.profile"
+FMB_X11_INC="firejailed-mullvad-browser-x11.inc"
 SUPPORTED_FIREJAIL_VERSIONS=("git" "0.9.70" "0.9.66" "0.9.64.4" "0.9.62" "0.9.58")
 
 CFG_FIREJAIL_VERSION="git"
 CFG_SRC="."
-CFG_TBB_PATH="PATH_TO_MULLVAD_BROWSER_ARCHIVE"
+CFG_MBB_PATH="PATH_TO_MULLVAD_BROWSER_ARCHIVE"
 CFG_X11=no
 if [[ -z "$WAYLAND_DISPLAY" ]]; then
   echo "[ Info ] \$WAYLAND_DISPLAY is unset (or empty). Allow X11."
@@ -70,7 +70,7 @@ parse_arguments()
         echo "[ Warning ] Unknown commandline argument: $arg"
       ;;
       *)
-        CFG_TBB_PATH="$arg"
+        CFG_MBB_PATH="$arg"
         break
       ;;
     esac
@@ -119,14 +119,14 @@ fix_disable-programs()
   fi
 
   DISABLE_PROGRAMS_LOCAL="${HOME}/.config/firejail/disable-programs.local"
-  BLACKLIST_FTB="blacklist \${HOME}/.firejailed-mullvad-browser"
+  BLACKLIST_FMB="blacklist \${HOME}/.firejailed-mullvad-browser"
 
   # grep prints errors about non-existing files even with --quiet
   touch "$DISABLE_PROGRAMS_LOCAL"
 
-  # Add $BLACKLIST_FTB to disable-programs.inc unless it's present.
-  if ! grep --quiet "$BLACKLIST_FTB" "$DISABLE_PROGRAMS_LOCAL"; then
-    echo "$BLACKLIST_FTB" >> "$DISABLE_PROGRAMS_LOCAL"
+  # Add $BLACKLIST_FMB to disable-programs.inc unless it's present.
+  if ! grep --quiet "$BLACKLIST_FMB" "$DISABLE_PROGRAMS_LOCAL"; then
+    echo "$BLACKLIST_FMB" >> "$DISABLE_PROGRAMS_LOCAL"
     echo "[ Ok ] Fixed disbale-programs.inc."
   fi
 }
@@ -137,12 +137,12 @@ allow_x11_if_wanted()
     return
   fi
 
-  touch "$HOME/.config/firejail/$FTB_LOCAL"
+  touch "$HOME/.config/firejail/$FMB_LOCAL"
 
-  INCLUDE_FTB_X11_INC="include firejailed-mullvad-browser-x11.inc"
+  INCLUDE_FMB_X11_INC="include firejailed-mullvad-browser-x11.inc"
 
-  if ! grep --quiet "^$INCLUDE_FTB_X11_INC" "$HOME/.config/firejail/$FTB_LOCAL"; then
-    echo "$INCLUDE_FTB_X11_INC" >> "$HOME/.config/firejail/$FTB_LOCAL"
+  if ! grep --quiet "^$INCLUDE_FMB_X11_INC" "$HOME/.config/firejail/$FMB_LOCAL"; then
+    echo "$INCLUDE_FMB_X11_INC" >> "$HOME/.config/firejail/$FMB_LOCAL"
     echo "[ Ok ] Allowed X11."
   fi
 }
@@ -150,14 +150,14 @@ allow_x11_if_wanted()
 
 install_fj()
 {
-  create_backup "$HOME/.config/firejail/$FTB_PROFILE"
-  install -Dm0644 "$CFG_SRC/$FTB_PROFILE" "$HOME/.config/firejail/$FTB_PROFILE"
-  echo "[ Ok ] Installed $FTB_PROFILE."
+  create_backup "$HOME/.config/firejail/$FMB_PROFILE"
+  install -Dm0644 "$CFG_SRC/$FMB_PROFILE" "$HOME/.config/firejail/$FMB_PROFILE"
+  echo "[ Ok ] Installed $FMB_PROFILE."
 
-  if [[ -e "$CFG_SRC/$FTB_X11_INC" ]]; then
-    create_backup "$HOME/.config/firejail/$FTB_X11_INC"
-    install -Dm0644 "$CFG_SRC/$FTB_X11_INC" "$HOME/.config/firejail/$FTB_X11_INC"
-    echo "[ Ok ] Installed $FTB_X11_INC."
+  if [[ -e "$CFG_SRC/$FMB_X11_INC" ]]; then
+    create_backup "$HOME/.config/firejail/$FMB_X11_INC"
+    install -Dm0644 "$CFG_SRC/$FMB_X11_INC" "$HOME/.config/firejail/$FMB_X11_INC"
+    echo "[ Ok ] Installed $FMB_X11_INC."
   fi
 
   fix_disable-programs
@@ -166,10 +166,10 @@ install_fj()
 
 install_de()
 {
-  create_backup "$FTB_DESKTOP_DEST"
-  mkdir -v -p "$(dirname "$FTB_DESKTOP_DEST")"
-  sed "s,HOME,$HOME,g" < "$CFG_SRC/$FTB_DESKTOP.in" > "$FTB_DESKTOP_DEST"
-  echo "[ Ok ] Installed $FTB_DESKTOP."
+  create_backup "$FMB_DESKTOP_DEST"
+  mkdir -v -p "$(dirname "$FMB_DESKTOP_DEST")"
+  sed "s,HOME,$HOME,g" < "$CFG_SRC/$FMB_DESKTOP.in" > "$FMB_DESKTOP_DEST"
+  echo "[ Ok ] Installed $FMB_DESKTOP."
 }
 
 # vim: ft=bash sw=4 ts=4 sts=4 et ai

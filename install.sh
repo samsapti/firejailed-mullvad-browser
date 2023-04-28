@@ -30,18 +30,18 @@ source _common.sh
 
 install_tb()
 {
-  if [[ ! -e "$CFG_TBB_PATH" ]]; then
-    echo "[ Error ] Could not find '$CFG_TBB_PATH'"
+  if [[ ! -e "$CFG_MBB_PATH" ]]; then
+    echo "[ Error ] Could not find '$CFG_MBB_PATH'"
     exit 1
   fi
 
-  create_backup "$FTB_HOME"
-  mkdir -p "$FTB_HOME"
+  create_backup "$FMB_HOME"
+  mkdir -p "$FMB_HOME"
 
   echo "[ Info ] Extracting the mullvad-browser ..."
-  tar -C "$FTB_HOME" --strip 1 -xJf "$CFG_TBB_PATH"
+  tar -C "$FMB_HOME" --strip 1 -xJf "$CFG_MBB_PATH"
   echo "[ Info ] Creating needed directories ..."
-  mkdir "$FTB_HOME/Data" "$FTB_HOME/UpdateInfo"
+  mkdir "$FMB_HOME/Data" "$FMB_HOME/UpdateInfo"
   echo "[ Ok ] mullvad-browser installed."
 }
 
