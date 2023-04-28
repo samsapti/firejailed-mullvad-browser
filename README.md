@@ -13,12 +13,13 @@ by rusty-snake. This fork is for Firejailing [Mullvad Browser](https://mullvad.n
     ```
     Or do the following steps:
     * Create `${HOME}/.firejailed-mullvad-browser` and extract Mullvad Browser to it.
+    * Create `${HOME]/.firejailed-mullvad-browser/Data` and `${HOME}/.firejailed-mullvad-browser/UpdateInfo`
     * Copy the `firejailed-mullvad-browser.profile` file from this repo to `$HOME/.config/firejail/firejailed-mullvad-browser.profile`.
     * Copy the `firejailed-mullvad-browser.desktop.in` file from this repo to `$HOME/.local/share/applications/firejailed-mullvad-browser.desktop` and replace each occurrence of the string HOME with the content of `$HOME`.
     * Add `blacklist ${HOME}/.firejailed-mullvad-browser` to `$HOME/.config/firejail/disable-programs.local`
     * **Summary**
       ```bash
-      $ mkdir $HOME/.firejailed-mullvad-browser
+      $ mkdir $HOME/.firejailed-mullvad-browser/{,Data,UpdateInfo}
       $ tar -C "$HOME/.firejailed-mullvad-browser" --strip 1 -xJf ~/Downloads/mullvad-browser-linux64-*_ALL.tar.xz
       $ wget -O "$HOME/.config/firejail/firejailed-mullvad-browser.profile" "https://raw.githubusercontent.com/samsapti/firejailed-mullvad-browser/master/firejailed-mullvad-browser.profile"
       $ wget -O- "https://raw.githubusercontent.com/samsapti/firejailed-mullvad-browser/master/firejailed-mullvad-browser.desktop.in" | sed "s;HOME;$HOME;g" > "$HOME/.local/share/applications/firejailed-mullvad-browser.desktop"
