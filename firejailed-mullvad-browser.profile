@@ -32,8 +32,6 @@
 # Persistent local customizations
 include firejailed-mullvad-browser.local
 
-# Note: PluggableTransports didn't work with this profile
-
 # If you use X11:
 #include firejailed-mullvad-browser-x11.inc
 
@@ -48,7 +46,9 @@ noblacklist ${HOME}/.firejailed-mullvad-browser
 
 include allow-bin-sh.inc
 
-blacklist /etc
+# /etc breaks network connectivity
+# TODO: Determine which files in /etc are needed by MB
+#blacklist /etc
 blacklist /opt
 blacklist /srv
 blacklist /sys
